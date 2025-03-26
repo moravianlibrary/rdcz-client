@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field, field_validator
 from .custom_types import RDczState
 
 
-class RDczRecord(BaseModel):
+class RDczDocument(BaseModel):
     issue_id: str = Field(alias="id")
     record_id: int = Field(alias="titul_id")
 

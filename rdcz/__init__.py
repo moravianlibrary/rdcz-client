@@ -1,12 +1,12 @@
 from .client import RDczClient
 from .custom_types import RDczField, RDczState
-from .record import RDczRecord
+from .record import RDczDocument
 
 __all__ = [
     "RDczClient",
     "RDczField",
     "RDczState",
-    "RDczRecord",
+    "RDczDocument",
 ]
 
 __version__ = "0.0.1"

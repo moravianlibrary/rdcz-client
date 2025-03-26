@@ -3,16 +3,16 @@ from typing import Dict, Generator, List
 from solrify import F, SearchQuery, SolrClient, SolrConfig
 
 from .custom_types import RDczField, RDczState
-from .record import RDczRecord
+from .record import RDczDocument
 
 
-class RDczClient(SolrClient[RDczRecord]):
-    document_type = RDczRecord
+class RDczClient(SolrClient[RDczDocument]):
+    document_type = RDczDocument
 
     def __init__(self, config: SolrConfig):
         super().__init__(config)
 
-    def search(self, query: SearchQuery) -> Generator[RDczRecord, None, None]:
+    def search(self, query: SearchQuery) -> Generator[RDczDocument, None, None]:
         record_state_cache: Dict[str, List[RDczState]] = dict()
 
         for record in super().search(query):
@@ -32,8 +32,8 @@ class RDczClient(SolrClient[RDczRecord]):
 
             yield record
 
-    def get_issue(self, issue_id: str) -> RDczRecord:
+    def get_issue(self, issue_id: str) -> RDczDocument:
         return self.get(self.search(F(RDczField.IssueId, issue_id)))
 
-    def get_all_issues(self, record_id: str) -> List[RDczRecord]:
+    def get_all_issues(self, record_id: str) -> List[RDczDocument]:
         return list(self.search(F(RDczField.RecordId, record_id)))
