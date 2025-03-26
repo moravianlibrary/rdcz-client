@@ -1,11 +1,32 @@
-.PHONY: prepare-env rm-env publish
+PYTHON_BASE := python3.12
 
-create-env:
-	python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+PYTHON_VENV := .venv
+PYTHON := $(PYTHON_VENV)/bin/python
+PYTHON_PIP := $(PYTHON_VENV)/bin/pip
 
-rm-env:
-	rm -r .venv/
+PROJECT_DIR := rdcz_client
+PYTHON_DEPS := requirements.txt
+PYTHON_TESTS_LIB := coverage
+TESTS_DIR := tests
+
+.PHONY: generate-env remove-env regenerate-env publish
+
+generate-env:
+	$(PYTHON_BASE) -m venv $(PYTHON_VENV)
+	$(PYTHON) -m ensurepip
+	$(PYTHON_PIP) install --upgrade pip
+	$(PYTHON_PIP) install -r $(PYTHON_DEPS)
+	$(PYTHON_PIP) install $(PYTHON_TESTS_LIB)
+
+remove-env:
+	rm -rf $(PYTHON_VENV)
+
+regenerate-env: remove-env generate-env
+
+test:
+	$(PYTHON) -m coverage run -m unittest discover -s $(TESTS_DIR) \
+	&& $(PYTHON) -m coverage html \
+	&& $(PYTHON) -m coverage report
 
 publish:
-	python setup.py sdist bdist_wheel && twine upload dist/*
-
+	$(PYTHON) setup.py sdist bdist_wheel && twine upload dist/*
