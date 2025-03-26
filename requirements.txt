@@ -1,3 +1,2 @@
-cachetools
 requests
 /home/robert/repositories/work/python-clients/solrify
