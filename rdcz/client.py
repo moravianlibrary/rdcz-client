@@ -3,7 +3,7 @@ from typing import Dict, Generator, List
 from solrify import F, SearchQuery, SolrClient, SolrConfig
 
 from .custom_types import RDczField, RDczState
-from .record import RDczDocument
+from .schemas import RDczDocument
 
 
 class RDczClient(SolrClient[RDczDocument]):

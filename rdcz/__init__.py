@@ -1,6 +1,6 @@
 from .client import RDczClient
 from .custom_types import RDczField, RDczState
-from .record import RDczDocument
+from .schemas import RDczDocument
 
 __all__ = [
     "RDczClient",
