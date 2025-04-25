@@ -18,6 +18,6 @@ dynamic = ["dependencies", "description", "readme"]
 packages = ["rdcz"]
 
 [tool.setuptools.dynamic]
-dependencies = {file = "requirements_install.txt"}
+dependencies = {file = "requirements.txt"}
 description = {file = "description.txt"}
 readme = {file = "README.md"}

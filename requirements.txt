@@ -1,2 +1,2 @@
 requests
-/home/robert/repositories/work/python-clients/solrify
+git+ssh://git@github.com/moravianlibrary/solrify.git
