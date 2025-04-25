@@ -12,12 +12,15 @@ authors = [
     {name = "Robert Randiak", email = "randiak@protonmail.com"}
 ]
 requires-python = ">=3.12"
-dynamic = ["dependencies", "description", "readme"]
+dependencies = [
+    "requests",
+    "solrify @ git+ssh://git@github.com/moravianlibrary/solrify.git"
+]
+dynamic = ["description", "readme"]
 
 [tool.setuptools]
 packages = ["rdcz"]
 
 [tool.setuptools.dynamic]
-dependencies = {file = "requirements.txt"}
 description = {file = "description.txt"}
 readme = {file = "README.md"}
