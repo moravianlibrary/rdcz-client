@@ -2,21 +2,21 @@ from solrify import MappingEnum
 
 
 class RDczField(MappingEnum):
-    IssueId = ("IssueId", "id")
-    RecordId = ("RecordId", "titul_id")
+    IssueId = ("issue_id", "id")
+    RecordId = ("record_id", "titul_id")
 
-    Barcode = ("Barcode", "carkod")
-    ControlNumber = ("ControlNumber", "pole001")
-    Nbn = ("Nbn", "cnb")
-    Isxn = ("Isxn", "isxn")
-    Signature = ("Signature", "signatura")
+    Barcode = ("barcode", "carkod")
+    ControlNumber = ("control_number", "pole001")
+    Nbn = ("nbn", "cnb")
+    Isxn = ("isxn", "isxn")
+    Signature = ("signature", "signatura")
 
-    State = ("State", "stav")
+    State = ("state", "stav")
 
-    Title = ("Title", "title")
-    VolumeYear = ("VolumeYear", "rozsah")
-    VolumeNumber = ("VolumeNumber", "cast")
-    Bundle = ("Bundle", "cisloper")
+    Title = ("title", "title")
+    VolumeYear = ("volume_year", "rozsah")
+    VolumeNumber = ("volume_number", "cast")
+    Bundle = ("bundle", "cisloper")
 
 
 class RDczState(MappingEnum):
