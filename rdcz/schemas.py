@@ -26,7 +26,7 @@ class RDczDocument(BaseModel):
     @field_validator("state", mode="before")
     def validate_state(cls, value: Any):
         if isinstance(value, str):
-            return RDczState.map_from(value)
+            return RDczState.from_alias(value)
 
         return value
 

@@ -19,7 +19,7 @@ class RDczClient(SolrClient[RDczDocument]):
             if record.record_id not in record_state_cache:
                 record_state_cache[record.record_id] = list(
                     set(
-                        RDczState.map_from(facet[0])
+                        RDczState.from_alias(facet[0])
                         for facet in self.facet(
                             F(RDczField.RecordId, record.record_id),
                             RDczField.State,

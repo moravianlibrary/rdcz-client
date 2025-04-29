@@ -2,28 +2,28 @@ from solrify import MappingEnum
 
 
 class RDczField(MappingEnum):
-    IssueId = ("issue_id", "id")
-    RecordId = ("record_id", "titul_id")
+    IssueId = "id"
+    RecordId = "titul_id"
 
-    Barcode = ("barcode", "carkod")
-    ControlNumber = ("control_number", "pole001")
-    Nbn = ("nbn", "cnb")
-    Isxn = ("isxn", "isxn")
-    Signature = ("signature", "signatura")
+    Barcode = "carkod"
+    ControlNumber = "pole001"
+    Nbn = "cnb"
+    Isxn = "isxn"
+    Signature = "signatura"
 
-    State = ("state", "stav")
+    State = "stav"
 
-    Title = ("title", "title")
-    VolumeYear = ("volume_year", "rozsah")
-    VolumeNumber = ("volume_number", "cast")
-    Bundle = ("bundle", "cisloper")
+    Title = "title"
+    VolumeYear = "rozsah"
+    VolumeNumber = "cast"
+    Bundle = "cisloper"
 
 
 class RDczState(MappingEnum):
-    Finished = ("Finished", "dokončeno")
-    InProgress = ("InProgress", "zpracování")
-    Planned = ("Planned", "plánováno")
-    Revision = ("Revision", "revize")
+    Finished = "dokončeno"
+    InProgress = "zpracování"
+    Planned = "plánováno"
+    Revision = "revize"
 
 
 class RDczException(Exception):
