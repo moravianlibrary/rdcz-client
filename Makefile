@@ -4,10 +4,13 @@ PYTHON_VENV := .venv
 PYTHON := $(PYTHON_VENV)/bin/python
 PYTHON_PIP := $(PYTHON_VENV)/bin/pip
 
-PROJECT_DIR := rdcz_client
+PROJECT_DIR := rdcz
 PYTHON_DEPS := requirements.txt
 PYTHON_TESTS_LIB := coverage
 TESTS_DIR := tests
+
+VERSION := $(shell python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')
+GIT_TAG := v$(VERSION)
 
 .PHONY: generate-env remove-env regenerate-env publish
 
@@ -28,5 +31,14 @@ test:
 	&& $(PYTHON) -m coverage html \
 	&& $(PYTHON) -m coverage report
 
-publish:
-	$(PYTHON) setup.py sdist bdist_wheel && twine upload dist/*
+tag-version:
+	@git tag -d $(GIT_TAG) 2>/dev/null || true
+	@git push origin :refs/tags/$(GIT_TAG) 2>/dev/null || true
+	git tag $(GIT_TAG)
+	git push origin $(GIT_TAG)
+
+tag-latest:
+	@git tag -d latest 2>/dev/null || true
+	@git push origin :refs/tags/latest 2>/dev/null || true
+	git tag latest
+	git push origin latest

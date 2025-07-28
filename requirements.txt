@@ -1,2 +1,2 @@
 requests
-git+https://github.com/moravianlibrary/solrify.git
+git+https://github.com/moravianlibrary/solrify.git@v0.1.0

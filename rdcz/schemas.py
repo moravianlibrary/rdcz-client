@@ -2,10 +2,18 @@ from typing import Any, List
 
 from pydantic import BaseModel, Field, field_validator
 
-from .custom_types import RDczState
+from .definitions import RDczState
 
 
 class RDczDocument(BaseModel):
+    """
+    Data model representing a digitized document in the RDcz
+    (Registr Digitalizace cz) system.
+
+    This model is used for serializing and validating data retrieved from
+    or submitted to a Solr index.
+    """
+
     issue_id: str = Field(alias="id")
     record_id: int = Field(alias="titul_id")
 

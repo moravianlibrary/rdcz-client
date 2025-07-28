@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from solrify import F, SearchQuery, SolrConfig
 
 from rdcz.client import RDczClient
-from rdcz.custom_types import RDczField, RDczState
+from rdcz.definitions import RDczField, RDczState
 
 
 class TestClient(unittest.TestCase):

@@ -1,1 +1,1 @@
-Registr Digitalizace cz API client
+A typed Python client for interacting with the Solr-based public API of the Czech National Library's "Registr digitalizace" (Digitalization Registry). Provides a simple and structured interface for querying digitized issues, titles, and related metadata using composable search queries.
